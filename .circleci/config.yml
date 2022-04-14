@@ -32,9 +32,12 @@ jobs:
     steps:
       - run:
           name: print FOO
-          shell: '/usr/bin/env node'
           command: |
+            cat << EOF > test.js
             console.log(process.env.FOO);
+            EOF
+            
+            node test.js
   bash:
     environment:
       FOO: bar
@@ -50,7 +53,7 @@ jobs:
 workflows:
   taco-shells:
     jobs:
-      - ruby
-      - python
-      - bash
+#       - ruby
+#       - python
+#       - bash
       - node
