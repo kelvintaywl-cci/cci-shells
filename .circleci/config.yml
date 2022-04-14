@@ -33,10 +33,7 @@ jobs:
       - run:
           name: print FOO
           command: |
-            cat << EOF > test.js
-            console.log(process.env.FOO);
-            EOF
-            
+            curl -s https://gist.github.com/kelvintaywl/812cefa21fdb56a020cb9636fd96f087 > test.js
             node test.js
   bash:
     environment:
