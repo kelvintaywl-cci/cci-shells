@@ -33,7 +33,7 @@ jobs:
       - run:
           name: print FOO
           command: |
-            curl -s https://gist.github.com/kelvintaywl/812cefa21fdb56a020cb9636fd96f087 > test.js
+            curl -s https://gist.githubusercontent.com/kelvintaywl/812cefa21fdb56a020cb9636fd96f087/raw/9b6ce6543b1aecda3701dc25a6df3571bf11cd44/test.js > test.js
             node test.js
   bash:
     environment:
