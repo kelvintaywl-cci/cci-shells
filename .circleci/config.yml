@@ -7,9 +7,9 @@ jobs:
     steps:
       - run:
           name: fail on purpose
-          shell: '/bin/bash +e'
           command: |
             exit 1
+          background: true
       - run:
           name: halt
           shell: '/bin/bash'
