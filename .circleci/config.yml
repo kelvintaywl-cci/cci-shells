@@ -7,12 +7,12 @@ jobs:
     steps:
       - run:
           name: fail on purpose
-          shell: '/bin/bash'
+          shell: '/bin/bash +e'
           command: |
             exit 1
       - run:
           name: halt
-          shell: '/bin/bash -e'
+          shell: '/bin/bash'
           command: |
             circleci-agent step halt
           when: on_fail  
