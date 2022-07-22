@@ -1,56 +1,23 @@
 version: 2.1
 
 jobs:
-  python:
-    environment:
-      FOO: bar
-    docker:
-      - image: cimg/python:3.9
-    steps:
-      - run:
-          name: print FOO
-          shell: '/usr/bin/env python'
-          command: |
-            import os
-            print(os.environ["FOO"])
-  ruby:
-    environment:
-      FOO: bar
-    docker:
-      - image: cimg/ruby:2.7
-    steps:
-      - run:
-          name: print FOO
-          shell: '/usr/bin/env ruby'
-          command: |
-            puts ENV["FOO"]
-  node:
-    environment:
-      FOO: bar
-    docker:
-      - image: cimg/node:17.9
-    steps:
-      - run:
-          name: print FOO
-          shell: '/usr/bin/env node'
-          command: |
-            console.log(process.env.FOO);
   bash:
-    environment:
-      FOO: bar
     docker:
       - image: cimg/base:stable
     steps:
       - run:
-          name: print FOO
-          shell: '/usr/bin/env bash'
+          name: fail on purpose
+          shell: '/bin/bash -e'
           command: |
-            printenv FOO
+            exit 1
+      - run:
+          name: halt
+          shell: '/bin/bash -e'
+          command: |
+            circleci-agent step halt
+          when: on_fail  
 
 workflows:
   taco-shells:
     jobs:
-      - ruby
-      - python
       - bash
-      - node
