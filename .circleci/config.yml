@@ -9,7 +9,7 @@ jobs:
     steps:
       - run:
           name: print FOO
-          shell: '/usr/bin/env python'
+          shell: python
           command: |
             import os
             print(os.environ["FOO"])
@@ -21,7 +21,7 @@ jobs:
     steps:
       - run:
           name: print FOO
-          shell: '/usr/bin/env ruby'
+          shell: ruby
           command: |
             puts ENV["FOO"]
   node:
@@ -32,7 +32,7 @@ jobs:
     steps:
       - run:
           name: print FOO
-          shell: '/usr/bin/env node'
+          shell: node
           command: |
             console.log(process.env.FOO);
   bash:
@@ -43,7 +43,6 @@ jobs:
     steps:
       - run:
           name: print FOO
-          shell: '/usr/bin/env bash'
           command: |
             printenv FOO
   rscript:
@@ -54,7 +53,7 @@ jobs:
     steps:
       - run:
           name: print FOO
-          shell: '/usr/bin/env R'
+          shell: R
           command: |
             Sys.getenv("FOO")
 
