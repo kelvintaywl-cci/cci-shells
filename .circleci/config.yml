@@ -46,6 +46,17 @@ jobs:
           shell: '/usr/bin/env bash'
           command: |
             printenv FOO
+  rscript:
+    environment:
+      FOO: bar
+    docker:
+      - image: rocker/tidyverse:latest
+    steps:
+      - run:
+          name: print FOO
+          shell: '/usr/bin/env R'
+          command: |
+            Sys.getenv("FOO")
 
 workflows:
   taco-shells:
@@ -54,3 +65,4 @@ workflows:
       - python
       - bash
       - node
+      - rscript
