@@ -53,8 +53,8 @@ jobs:
     steps:
       - run:
           name: print FOO
-          shell: 'R -e'
-          # NOTE: `R -e "..."` command works though; we can test this when in the SSH session
+          shell: 'Rscript -e'
+          # NOTE: `R -e "..."` command works on terminal though; we can test this when in the SSH session
           # not sure why this is failing.
           command: |
             Sys.getenv("FOO")
