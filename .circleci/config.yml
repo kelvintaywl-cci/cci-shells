@@ -53,8 +53,7 @@ jobs:
     steps:
       - run:
           name: print FOO
-          shell: 'R --interactive'
-          # shell: R -e
+          shell: 'R -e'
           # NOTE: `R -e "..."` command works though; we can test this when in the SSH session
           # not sure why this is failing.
           command: |
