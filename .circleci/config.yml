@@ -28,11 +28,11 @@ jobs:
     environment:
       FOO: bar
     docker:
-      - image: cimg/node:17.9
+      - image: cimg/node:lts
     steps:
       - run:
           name: print FOO
-          shell: node -e
+          shell: node
           command: |
             console.log(process.env.FOO);
   bash:
