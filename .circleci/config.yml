@@ -32,7 +32,7 @@ jobs:
     steps:
       - run:
           name: print FOO
-          shell: node
+          shell: node -e
           command: |
             console.log(process.env.FOO);
   bash:
@@ -53,7 +53,7 @@ jobs:
     steps:
       - run:
           name: print FOO
-          shell: R
+          shell: R -e
           command: |
             Sys.getenv("FOO")
 
